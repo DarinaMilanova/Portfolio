@@ -1,5 +1,5 @@
 body.dark-mode {
-    background-color: #2f2f3f;  /* Soft twilight navy */
+    background-color: #2f2f3f; 
     color: #f7f7f7;
   }
   
@@ -7,7 +7,7 @@ body.dark-mode {
   .dark-mode a,
   .dark-mode .section-title,
   .dark-mode footer {
-    background-color: #44475a;  /* Grayish purple-blue */
+    background-color: #44475a;  
     color: #ffffff;
   }
   
@@ -31,7 +31,8 @@ body.dark-mode {
   }
   
   .dark-mode .dot.active {
-    background-color: #4a90e2; /* Calm blue pop */
+    background-color: #918ce1;   
+    border-color: #837dee;     
   }
   
   /* 🛠️ Section Overrides */
@@ -69,11 +70,11 @@ body.dark-mode {
 
 /* ===== Projects: Dark Mode ===== */
 .dark-mode #projects{
-  background-color:#2f2f3f;              /* match page bg */
+  background-color:#2f2f3f;              
 }
 
 .dark-mode .project-card{
-  background-color:#3a3a4d;              /* dark card */
+  background-color:#3a3a4d;             
   color:#fff;
   box-shadow:0 4px 12px rgba(0,0,0,.35);
 }
@@ -85,7 +86,7 @@ body.dark-mode {
 
 /* preview frame */
 .dark-mode .project-media{
-  border-color:#d9d9e0;                  /* soften bright white border */
+  border-color:#d9d9e0;                  
   background:transparent;
 }
 .dark-mode .project-img{ background:transparent !important; }
@@ -113,4 +114,9 @@ body.dark-mode {
 .dark-mode .project-media {
   background: #3a3a4d; /* blends perfectly with dark cards */
   box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+/* ===== Skills Heading Color Fix (Dark Mode) ===== */
+.dark-mode .skills-category h3 {
+  color: #ffffff;
 }

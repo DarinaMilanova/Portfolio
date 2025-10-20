@@ -45,7 +45,8 @@
       <section id="about">
         <h2 class="section-heading">About Me</h2>
         <div class="aboutme">
-          <p>I’m Darina Milanova, an aspiring Python developer based in Sofia, currently studying full-stack development at SoftUni. My main focus is building strong back-end development skills with Python, Django, and PostgreSQL, while also learning front-end fundamentals to support full end-to-end development.</p>
+          <p>I’m Darina , a developer based in Sofia who genuinely loves computers, problem-solving, and learning how things work.
+            I’m currently studying Full-Stack Development at SoftUni, focusing on Python, Django, and PostgreSQL, while exploring front-end technologies to support full end-to-end development.</p>
           <p>I’m excited to grow in a field that constantly challenges and inspires me to keep learning and improving. More than anything, I’m eager to start working on real projects and apply my skills in professional, hands-on environments as part of a collaborative, growth-oriented team.</p>
         </div>
       </section>
@@ -100,9 +101,9 @@
             </div>
             <h3 class="project-title">ETL Shipments Tracker</h3>
             <p class="project-text">
-              End-to-end logistics ETL pipeline with step logging, exception tracking, and KPI visualizations.
+              End-to-end logistics ETL pipeline that automates data extraction, transformation, and loading with detailed step logging, error tracking, and KPI visualizations.
             </p>
-            <p class="project-tech"><strong>Tech:</strong> Python, Pandas, Matplotlib, CLI</p>
+            <p class="project-tech"><strong>Tech:</strong> Python, Pandas, Matplotlib</p>
             <div class="project-links">
               <a href="https://github.com/DarinaMilanova/etl-shipments" target="_blank" rel="noopener noreferrer">GitHub</a>
             </div>
@@ -125,17 +126,15 @@
         <div class="skills-category">
           <h3>Tools</h3>
           <ul>
-            <li>Git</li>
-            <li>Github</li>
-            <li>PyCharm Professional</li>
-            <li>VS code </li>
-            <li>Terminal commands</li>
+            <li>Git, Github</li>
+            <li>VS code, PyCharm Professional</li>
+            <li>Terminal / Shell</li>
             <li>Docker Desktop</li>
             <li> Postman </li>
           </ul>
         </div>
         <div class="skills-category">
-          <h3>Languages</h3>
+          <h3>Courses & Certificates</h3>
           <ul>
             <li>English </li>
             <span> FCE Britanica Certification and course </span>
@@ -157,12 +156,12 @@
           <h3>Currently learning</h3>
           <ul>
             <li> Python OOP</li>
-            <li> Django Basics and Advanced</li>
+            <li> Django (Advanced)</li>
             <li> PostgreSQL / SQLite</li>
           </ul>
         </div>
         <div class="skills-category">
-          <h3>Interested In</h3>
+          <h3>Interests</h3>
           <ul>
             <li> Web Design</li>
             <li> Full stack development</li>
@@ -176,21 +175,24 @@
 
       <section id="certifications">
         <h2 class="section-heading">Certifications</h2>
-        <div class="certification">
+
+        <div class="certification" tabindex="0" aria-label="Open certificate">
           <img src="certifications/228183.png" alt="Python Basics Certificate">
           <div class="cert-info">
             <h3>Programming Basics Python Certificate</h3>
             <p>Issued: October 2024</p>
           </div>
         </div>
-        <div class="certification">
+
+        <div class="certification" tabindex="0" aria-label="Open certificate">
           <img src="certifications/240319.png" alt="Python Fundamentals Certificate">
           <div class="cert-info">
             <h3>Programming Fundamentals Python Certificate</h3>
             <p>Issued: March 2025</p>
           </div>
         </div>
-        <div class="certification">
+
+        <div class="certification" tabindex="0" aria-label="Open certificate">
           <img src="certifications/245352.png" alt="Python Advanced Certificate">
           <div class="cert-info">
             <h3>Programming Advanced Python Certificate</h3>
@@ -204,10 +206,10 @@
           <h2>Contact  <i class="fas fa-search"></i></h2>
 
           <p><i class="fas fa-envelope"></i> darinakmilanova@gmail.com</p>
-          <p><i class="fas fa-phone"></i> +359 88 995 8054</p>
+          <p><i class="fas fa-phone"></i> +359 88 9958054</p>
 
           <div class="social-links">
-            <a href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/darina-milanova-a64240241/" target="_blank" rel="noopener noreferrer">
               <i class="fab fa-linkedin"></i> LinkedIn
             </a>
             <a href="https://github.com/DarinaMilanova" target="_blank" rel="noopener noreferrer">
@@ -219,7 +221,8 @@
     </main>
 
     <footer>
-      <p> 2025 Darina Milanova</p>
+      <strong> 2025 Darina Milanova </strong>
+      <p> Built with ❤️ using HTML, CSS and JavaScript</p>
     </footer>
 
     <script src="script.js"></script>
@@ -231,5 +234,51 @@
       <a href="#contact" class="dot" data-target="contact"></a>
     </div>
 
+    <div id="cert-modal" class="cert-modal" aria-hidden="true">
+      <div class="cert-backdrop" data-close></div>
+      <figure class="cert-dialog" role="dialog" aria-modal="true" aria-label="Certificate Viewer">
+        <button class="cert-close" type="button" title="Close (Esc)" data-close>&times;</button>
+        <img id="cert-full" alt="Certificate preview" />
+        <figcaption id="cert-caption"></figcaption>
+      </figure>
+    </div>
+
+    <script>
+      (function () {
+        const modal = document.getElementById('cert-modal');
+        if (!modal) return;
+        const imgEl = document.getElementById('cert-full');
+        const capEl = document.getElementById('cert-caption');
+
+        function openModal(card){
+          const img = card.querySelector('img');
+          const title = card.querySelector('h3')?.textContent?.trim() || 'Certificate';
+          imgEl.src = img.getAttribute('src');
+          imgEl.alt = img.getAttribute('alt') || title;
+          capEl.textContent = title;
+          modal.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
+        }
+        function closeModal(){
+          modal.setAttribute('aria-hidden', 'true');
+          imgEl.src = '';
+          document.body.style.overflow = '';
+        }
+
+        document.querySelectorAll('.certification').forEach(card => {
+          card.addEventListener('click', () => openModal(card));
+          card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(card); }
+          });
+        });
+
+        modal.addEventListener('click', (e) => {
+          if (e.target.hasAttribute('data-close')) closeModal();
+        });
+        window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+      })();
+
+      
+    </script>
   </body>
 </html>

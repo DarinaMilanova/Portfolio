@@ -155,11 +155,6 @@ footer {
 }
 
 /* ===== Certifications ===== */
-#certifications {
-  padding: 2rem;
-  background: #f9f9f9;
-  padding-right: 3rem;
-}
 
 .certification {
   display: flex;
@@ -250,35 +245,6 @@ footer {
   background-color: #dcd8ff;
 }
 
-/* ===== Section Title (legacy + unified) ===== */
-.section-title {
-  background-color: #f0f0f0;
-  border-radius: 50px;
-  padding: 1rem 2rem;
-  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
-  font-size: 1.5rem;
-  font-weight: 500;
-  color: #000000;
-  text-align: center;
-  display: block;
-  margin: 3rem auto 2rem;
-  width: fit-content;
-}
-
-.section-title {
-  font-size: 1.1rem;
-  font-weight: 500;
-  text-align: center;
-  padding: 0.8rem 1.6rem;
-  margin: 2.5rem auto 2rem;
-  border-radius: 50px;
-  background-color: #f0f0f0;
-  color: #000000;
-  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
-  display: block;
-  width: fit-content;
-}
-
 /* ===== Dot Nav ===== */
 .dot-nav {
   position: fixed;
@@ -310,31 +276,12 @@ footer {
 }
 
 .dot.active {
-  background-color: #3C6F9C;
-  transform: scale(1.4);
+  background-color: #dcd8ff;  
+  transform: scale(1.2);
   opacity: 1;
 }
 
-/* ===== Footer Pill (final) ===== */
-footer {
-  background-color: #EBEAFF;
-  border-radius: 50px;
-  margin: 2rem auto;
-  padding: 1rem 2rem;
-  width: fit-content;
-  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
-  font-size: 1rem;
-  color: #000000;
-}
-
 /* ===== Nav pill specifics ===== */
-nav a {
-  font-size: 1.15rem;
-  font-weight: 600;
-  padding: 1rem 2.4rem;
-  border-radius: 50px;
-  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.08);
-}
 
 nav a {
   background-color: #EBEAFF;
@@ -395,44 +342,11 @@ section {
 }
 
 /* ===== Projects (light) ===== */
-#projects {
-  background-color: #C4D9FF;
-  padding: 2rem 1.5rem 3rem;
-}
 
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 18px;
-  justify-items: center;
-}
-
-.project-card {
-  background-color: #f0f0f0;
-  border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  max-width: 320px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
 
 .project-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.12);
-}
-
-.project-img {
-  width: 100%;
-  height: 150px;
-  object-fit: contain;
-  border-radius: 12px;
-  border: 3px solid #ffffff;
-  margin-bottom: 0.8rem;
-  background: #EBEAFF;
 }
 
 .project-title {
@@ -451,14 +365,6 @@ section {
   font-size: 0.9rem;
   line-height: 1.5;
   margin: 0.3rem 0;
-}
-
-.project-links {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 0.6rem;
 }
 
 .project-links a {
@@ -534,6 +440,30 @@ section {
 .project-text,
 .project-tech {
   font-size: 0.95rem;
+}
+#projects {
+  background-color: #C4D9FF;
+  padding: 2rem 1.5rem 3rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  justify-items: center;
+}
+
+.project-card {
+  background-color: #f0f0f0;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 @media (min-width: 1100px) {
@@ -713,9 +643,36 @@ section {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
 }
 
-footer {
-  padding: 0.6rem 1.2rem;
-  font-size: 0.95rem;
-  border-radius: 36px;
-  margin: 1.5rem auto;
+/* ===== Certificates: Lightbox ===== */
+.certification { cursor: pointer; }
+
+.cert-modal { position: fixed; inset: 0; display: none; z-index: 2000; }
+.cert-modal[aria-hidden="false"] { display: block; }
+.cert-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,.5); backdrop-filter: blur(2px); }
+
+.cert-dialog {
+  position: relative;
+  margin: 5vh auto;
+  max-width: min(92vw, 1000px);
+  display: flex; flex-direction: column; gap: 8px; align-items: center;
+  background: #ffffff; border-radius: 16px; padding: 14px;
+  box-shadow: 0 12px 32px rgba(0,0,0,.25);
+}
+
+.cert-close {
+  position: absolute; top: 8px; right: 10px;
+  font-size: 28px; background: none; border: 0; cursor: pointer; color: #333;
+}
+
+#cert-full { max-width: 100%; max-height: 78vh; border-radius: 8px; }
+#cert-caption { font-size: .95rem; color: #555; align-self: flex-start; }
+
+/* ===== Skills Section Hover Animation ===== */
+.skills-category {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.skills-category:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.15);
 }
