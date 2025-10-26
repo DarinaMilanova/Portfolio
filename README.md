@@ -92,6 +92,7 @@ Deployed via Render:
 
 **Darina Milanova**  
 Built with ❤️ using HTML, CSS & JavaScript
+
 📧 darinakmilanova@gmail.com  
 🔗 https://www.linkedin.com/in/darina-milanova-a64240241/  
 💻 https://github.com/DarinaMilanova
