@@ -33,10 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.certification').forEach(card => {
       card.addEventListener('click', () => openModal(card));
-      card.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(card); }
-      });
-    });
+    });    
 
     modal.addEventListener('click', (e) => {
       if (e.target.hasAttribute('data-close')) closeModal();
